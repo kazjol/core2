@@ -48,15 +48,14 @@ class Solution2:
         # 此时 nums[left-1] < target 而 nums[left] = nums[right+1] >= target
         # 所以 left 就是第一个 >= target 的元素下标
         return left
-        '''
-        # lower_bound 是二分的下界写法 返回的是第一个大于等于target的值 会一直缩到最左边且满足条件的位置
-        # 当 nums 中存在多个 target 时，lower_bound 会一直向左收缩区间，直到找到第一个等于 target 的位置。
-        # 这是因为只要 nums[mid] >= target，就会把 right 往左移，直到不能再移为止。
-        # 最终 left 停在第一个 nums[left] >= target 的地方。
-        # 如果 nums[left] == target，那么 left 就是第一个等于 target 的下标。
-        '''
 
-
+    '''
+            # lower_bound 是二分的下界写法 返回的是第一个大于等于target的值 会一直缩到最左边且满足条件的位置
+            # 当 nums 中存在多个 target 时，lower_bound 会一直向左收缩区间，直到找到第一个等于 target 的位置。
+            # 这是因为只要 nums[mid] >= target，就会把 right 往左移，直到不能再移为止。
+            # 最终 left 停在第一个 nums[left] >= target 的地方。
+            # 如果 nums[left] == target，那么 left 就是第一个等于 target 的下标。
+            '''
 
     def searchRange(nums: List[int], target: int) -> List[int]:
         start = lower_bound(nums, target)
@@ -75,6 +74,6 @@ print(Solution().searchRange(nums, target))
 
 # 问：怎么判断我写的是哪一种二分？
 
-# 答：看 while 循环的条件，如果是 left <= right，就是闭区间；
-# 如果是 left < right，就是半闭半开区间；
-# 如果是 left + 1 < right，就是开区间
+# 答：看 while 循环的条件，如果是 left <= right，就是闭区间； 两边边界都能取到 初始化为left，right =  0 ，len(nums) - 1
+# 如果是 left < right，就是半闭半开区间； 判断结束意味着右边界取不到 初始化为left，right =  -1 ，len(nums) - 1
+# 如果是 left + 1 < right，就是开区间 判断结束意味着两边都取不到 初始化为left，right =  -1 ，len(nums)

@@ -56,7 +56,7 @@ def lower_bound2(nums: list[int], target: int) -> int:
 # 开区间写法
 def lower_bound3(nums: list[int], target: int) -> int:
     left, right = -1, len(nums)  # 开区间 (left, right)
-    while left + 1 < right:  # 区间不为空
+    while left + 1 < right:  # 区间不为空 取不到left右边界也取不到左边right右边界
         mid = (left + right) // 2
         # 循环不变量：
         # nums[left] < target
@@ -65,7 +65,7 @@ def lower_bound3(nums: list[int], target: int) -> int:
             left = mid  # 范围缩小到 (mid, right)
         else:
             right = mid  # 范围缩小到 (left, mid)
-    return right
+    return right # 返回left因为最后的返回条件是left+1==right 要返回第一个大于等于的数
 
 
 class Solution2:
