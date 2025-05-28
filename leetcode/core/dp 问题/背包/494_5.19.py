@@ -140,19 +140,19 @@ class Solution5:
             return 0
         m = s // 2 #  选正或是选负的个数 缩小了样本搜索空间 后面的子集求结果的部分只用找和为满足该正数或负数的部分
         '''
-        首先，s = sum(nums) - abs(target)，这是经过数学推导得到的：
+        首先，s = sum.txt(nums) - abs(target)，这是经过数学推导得到的：
         假设正数集合的和为 pos
         负数集合的和为 neg
-        数组总和为 sum
+        数组总和为 sum.txt
         目标值为 target
 
         根据题意：
         pos - neg = target
-        pos + neg = sum
+        pos + neg = sum.txt
 
         通过这两个等式，我们可以得到：
-        pos = (sum + target) / 2
-        neg = (sum - target) / 2
+        pos = (sum.txt + target) / 2
+        neg = (sum.txt - target) / 2
 
         所以 m = s // 2 实际上就是：
         我们需要在数组中找到和为 m 的子集

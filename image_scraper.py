@@ -1,5 +1,5 @@
 import os
-import requests
+import requests # 可能需要下载部分软件包
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
 from tqdm import tqdm

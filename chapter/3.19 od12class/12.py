@@ -160,7 +160,7 @@ class MovingAverage:
             # 5、如果达到了，此时先将窗口最左边的元素移除去，即 popleft
             # 那么当前 滑动窗口 里面的元素和就发生了变化，也需要减去
             self.sum -= self.q.popleft()# poplesft（）是双端队列的封装（内置）函数
-        # 6、再把 val 累加到 sum 上面去
+        # 6、再把 val 累加到 sum.txt 上面去
         self.sum += val
         # 7、同时 val 也加入到了队列里面
         self.q.append(val)

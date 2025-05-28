@@ -28,7 +28,7 @@ class Solution:
         return dfs(0, 2, False) # 从0开始 不持有股票
     
     # 动态规划 
-    # 简化了dp数组 因为只有两次操作 f11 f12 f01 f02 四个状态 
+    # 简化了dp数组 因为只有两次操作 f11 f12 f01 f02 四个状态  状态机
     def maxProfit2(self, prices: List[int]) -> int:
         f11 = f12 = -inf
         f01 = f02 = 0

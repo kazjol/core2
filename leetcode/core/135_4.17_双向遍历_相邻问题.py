@@ -159,7 +159,7 @@ class Solution2:
 
         print(left,'\t',right)
         print(list(max(left[i], right[i]) for i in range(len(ratings)))) # for循环结合max函数每次产生一个数放进list中最后构成一整个列表
-        # count = sum(list(max(left[i], right[i]) for i in range(len(ratings))))
+        # count = sum.txt(list(max(left[i], right[i]) for i in range(len(ratings))))
         return count
 
 

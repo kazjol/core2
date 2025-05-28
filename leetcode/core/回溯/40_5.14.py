@@ -66,20 +66,20 @@ class Solution:
 
 
         #                                []
-        #                             sum = 0
+        #                             sum.txt = 0
         #                         (可用:[1,1,2,3])
         #                        /    ~~|~~   |   \
         #                       /       |     |    \
         #                      1       1      2     3
-        #                   sum=1    (跳过)  sum=2  sum=3
+        #                   sum.txt=1    (跳过)  sum.txt=2  sum.txt=3
         #             (可用:[1,2,3])        /    \  
         #            /     |     \         2      3  *只能选后面的元素（前面的元素都做剪枝） 因为前面的元素已经作为同层分支结点做递归了 如果不选后面的元素 就会重复
-        #           /      |      \     sum=4   sum=5
+        #           /      |      \     sum.txt=4   sum.txt=5
         #          1       2       3      ✓     (剪枝)
-        #       sum=2    sum=3    sum=4
+        #       sum.txt=2    sum.txt=3    sum.txt=4
         #      /    \        \      ✓
         #     2      3        3
-        #   sum=4 sum=5     sum=5
+        #   sum.txt=4 sum.txt=5     sum.txt=5
         #     ✓   (剪)       (剪)
 
         # 注释说明：
@@ -94,8 +94,8 @@ class Solution:
 
         # 同层重复元素的处理（第一层的第二个1被跳过）
         # 向后选择的原则（每个节点只能选择后面的数）
-        # 剪枝时机（sum > target时停止）
-        # 找到有效解的情况（sum == target）
+        # 剪枝时机（sum.txt > target时停止）
+        # 找到有效解的情况（sum.txt == target）
 
         def backtrack2(start, curr_sum, sub):
             # 使用curr_sum替代sum(sub)，提高效率
