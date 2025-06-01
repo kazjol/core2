@@ -1,6 +1,9 @@
 # 在排序数组中查找元素的第一个和最后一个位置
 # 因为数组是有序的所以target一定是连续的，所以可以用二分法查找target的第一个和最后一个位置
-
+'''
+        二分 每次都分两个表查
+        每次只比较mid 也就是每次只比中间值猜出答案
+'''
 
 from typing import List
 class Solution:
@@ -8,15 +11,15 @@ class Solution:
         if not nums:
             return [-1, -1]
             
-        left, right = 0, len(nums) - 1  # 使用闭区间
+        left, right = 0, len(nums) - 1  # 使用闭区间 闭区间可能出现死循环
         res = [-1, -1]
         
         # 二分查找找到第一个目标值
-        while left <= right:
+        while left <= right: # 闭区间判断 左右都取得到
             mid = (left + right) // 2
-            if nums[mid] < target:
+            if nums[mid] < target: # target在左半表 且要跳过mid因为mid不是>=target
                 left = mid + 1
-            elif nums[mid] > target:
+            elif nums[mid] > target: # target在右半表
                 right = mid - 1
             else:  # 找到目标值
                 # 继续向左查找，确保找到第一个目标值 
@@ -26,9 +29,9 @@ class Solution:
                 res[0] = mid
                 # 向右遍历找到最后一个目标值
                 while mid < len(nums) and nums[mid] == target:
-                    mid += 1
+                    mid += 1 # 返回时 mid是最后一个=target的值的后一个
                 res[1] = mid - 1
-                return res
+        return res
 class Solution2:
     # lower_bound 返回最小的满足 nums[i] >= target 的下标 i
     # 如果数组为空，或者所有数都 < target，则返回 len(nums)

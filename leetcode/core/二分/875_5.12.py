@@ -23,7 +23,10 @@ class Solution:
             # 使用(p-1) // mid来实现向上取整
             # 通过把n个+1移到右边，简化了计算
             # 使用生成器表达式和sum函数，使代码更简洁
-
+            '''
+                对于数据分割情况做二分
+                这种情况而分里的if是要做sum的 最主要的是列数学式进行判断的设计
+            '''
             # 因为整除会向下取整 所以要减1 后面实际还是会加1的然后做了sum会变成整体加n 这里把n移到了等式右边
             if sum((p - 1) // mid for p in piles) <= h - n: # 如果剩余的香蕉在h小时内能吃完 那么就持续向左缩小范围 因为要找最小值
                 right = mid  # 循环不变量：恒为 True
@@ -57,7 +60,10 @@ class Solution2:
         while left<= right:# 闭区间写法
             mid = (left + right) // 2
             # 剩的时间多 可以减小速度
-            if sum((p-1)//mid for p in piles) <= h-len(piles): 
+            '''
+                对于数据分割情况做二分
+            '''
+            if sum((p-1)//mid for p in piles) <= h-len(piles):  
                 right = mid - 1
             # 剩余时间不足
             else:
