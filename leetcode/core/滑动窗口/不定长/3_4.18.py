@@ -14,14 +14,6 @@
 
 
 
-
-
-
-
-
-
-
-
 # 哈希表 集合 字典 字符串
 class Solution:
 
@@ -84,6 +76,7 @@ class Solution2:
         maxLen = 0
 
         # 同时又涉及去重用集合，因此需要一个哈希表
+        # 用集合判断如果 在集合里存在则重复
 
         hash = set()
 
@@ -132,7 +125,7 @@ class Solution2:
 class Solution3:
     def lengthOfLongestSubstring(self, s: str) -> int:
         print('\n\nleetcode 解法 字典')
-        dic, res, left = {}, 0, -1
+        dic, res, left = {}, 0, -1 #
         for right in range(len(s)):
             if s[right] in dic: # 都是用键匹配 主要数据部分是值
                 # 直接更新下标呢
@@ -144,7 +137,7 @@ class Solution3:
                 # 对于字典而言因为是哈希表 根据关键字匹配的所以不能有重复的关键字 出现重复的关键字会覆盖之前的
 
                  left = max(dic[s[right]], left) # 更新左指针 left
-            dic[s[right]] = right # 哈希表记录
+            dic[s[right]] = right # 哈希表记录   键是字符 值是索引  字典一般都是这样的因为键可以匹配搜索得到值
             res = max(res, right - left) # 更新结果
         return res
 

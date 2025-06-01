@@ -7,8 +7,8 @@
 # 子数组 [numsl, numsl+1, ..., numsr-1, numsr] ，并返回其长度。如果不存在符合条件的子数组，返回 0
 
 
-# 返回的是元素个数 原数组是无序不能排序因为子序列顺序是按原顺序的
-# 不用二分和贪心就不要排序
+# 返回的是元素个数 原数组是无序不能排序因为子序列的顺序是不可变的
+# 不用二分和贪心就不要排序 二分是在一个（min，max）取值范围内猜值
 from typing import List
 class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
